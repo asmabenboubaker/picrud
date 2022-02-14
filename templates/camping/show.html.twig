@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Camping{% endblock %}
+
+{% block body %}
+    <h1>Camping</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ camping.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom_camp</th>
+                <td>{{ camping.nomCamp }}</td>
+            </tr>
+            <tr>
+                <th>Date_debut_camp</th>
+                <td>{{ camping.dateDebutCamp ? camping.dateDebutCamp|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_fin_camp</th>
+                <td>{{ camping.dateFinCamp ? camping.dateFinCamp|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Lieu_camp</th>
+                <td>{{ camping.lieuCamp }}</td>
+            </tr>
+            <tr>
+                <th>Descri_camp</th>
+                <td>{{ camping.descriCamp }}</td>
+            </tr>
+            <tr>
+                <th>Nbre_place_camp</th>
+                <td>{{ camping.nbrePlaceCamp }}</td>
+            </tr>
+            <tr>
+                <th>Image_camp</th>
+                <td>{{ camping.imageCamp }}</td>
+            </tr>
+            <tr>
+                <th>Prix_camp</th>
+                <td>{{ camping.prixCamp }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('camping_index') }}">back to list</a>
+
+    <a href="{{ path('camping_edit', {'id': camping.id}) }}">edit</a>
+
+    {{ include('camping/_delete_form.html.twig') }}
+{% endblock %}
